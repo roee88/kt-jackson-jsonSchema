@@ -24,6 +24,9 @@ android {
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
@@ -38,4 +41,15 @@ dependencies {
 }
 repositories {
     mavenCentral()
+}
+
+publish {
+    userOrg = 'com-dr'
+    repoName = 'dr-public'
+    groupId = 'com.dr'
+    artifactId = 'ktjsonschema'
+    publishVersion = '1.0.0'
+    uploadName = 'KtJsonSchema'
+    desc = 'Generate JSON Schema draft 4 with Polymorphism using Jackson annotations'
+    website = 'https://github.com/roee88/kt-jackson-jsonSchema'
 }
