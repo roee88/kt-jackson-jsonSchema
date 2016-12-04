@@ -13,7 +13,7 @@ While mbknor-jackson-jsonSchema can easily be modified to target Java6, the Scal
 
 **Gradle (jcenter)**
 ```gradle
-compile 'com.dr:ktjsonschema:1.0.0'
+compile 'com.dr:ktjsonschema:1.0.1'
 ```
 
 **Maven (jcenter)**
@@ -21,7 +21,7 @@ compile 'com.dr:ktjsonschema:1.0.0'
 <dependency>
   <groupId>com.dr</groupId>
   <artifactId>ktjsonschema</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <type>pom</type>
 </dependency>
 ```
@@ -54,7 +54,7 @@ The translation from the Scala codebase was blind and quick, so some bugs may be
     // If using JsonSchema to generate HTML5 GUI:
     // JsonSchemaGenerator html5 = new JsonSchemaGenerator(objectMapper, JsonSchemaConfig.getHtml5EnabledSchema() );
 
-    // If you want to confioure it manually:
+    // If you want to configure it manually:
     // JsonSchemaConfig config = new JsonSchemaConfig(...);
     // JsonSchemaGenerator generator = new JsonSchemaGenerator(objectMapper, config);
 
