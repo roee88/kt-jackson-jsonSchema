@@ -377,13 +377,13 @@ class JsonSchemaGenerator @JvmOverloads constructor (
             // We get improved result while processing kotlin-collections by getting elementType this way
             // instead of using the one which we receive in JsonArrayFormatVisitor.itemsFormat
             // This approach also works for Java
-            val preferredElementType: JavaType = _type!!.contentType
+            val preferredElementType: JavaType? = _type!!.contentType
 
             return object : JsonArrayFormatVisitor, MySerializerProvider() {
 
                 override fun itemsFormat(handler: JsonFormatVisitable?, elementType: JavaType?) {
                     l("expectArrayFormat - handler: $handler - elementType: $elementType - preferredElementType: $preferredElementType")
-                    objectMapper.acceptJsonFormatVisitor(preferredElementType, createChild(itemsNode, currentProperty = null))
+                    objectMapper.acceptJsonFormatVisitor(preferredElementType?:elementType, createChild(itemsNode, currentProperty = null))
                 }
 
                 override fun itemsFormat(format: JsonFormatTypes?) {
