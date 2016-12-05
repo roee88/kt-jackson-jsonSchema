@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/roee88/kt-jackson-jsonSchema.svg?branch=master)](https://travis-ci.org/roee88/kt-jackson-jsonSchema)
 [![Download](https://api.bintray.com/packages/com-dr/dr-public/KtJsonSchema/images/download.svg) ](https://bintray.com/com-dr/dr-public/KtJsonSchema/_latestVersion)
 [![Licence](https://img.shields.io/badge/Licence-Apache2-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
