@@ -34,7 +34,7 @@ public class ThreeTenTest {
 		JsonNode node = generator.generateJsonSchema(ClassWithLocalDate.class);
 
         assertEquals(
-                "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"title\":\"ClassWithLocalDate\",\"type\":\"object\",\"additionalProperties\":false,\"properties\":{\"localDate\":{\"type\":\"array\",\"items\":{\"type\":\"integer\"},\"format\":\"date\"}}}",
+                "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"title\":\"Class With Local Date\",\"type\":\"object\",\"additionalProperties\":false,\"properties\":{\"localDate\":{\"type\":\"array\",\"items\":{\"type\":\"integer\"},\"format\":\"date\"}}}",
                 objectMapper.writeValueAsString(node));
 	}
 

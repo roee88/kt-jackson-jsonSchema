@@ -35,7 +35,9 @@ class JsonSchemaGenerator @JvmOverloads constructor (
         val debug:Boolean = false
 ) {
 
-    val JSON_SCHEMA_DRAFT_4_URL = "http://json-schema.org/draft-04/schema#"
+    companion object {
+        @JvmStatic val JSON_SCHEMA_DRAFT_4_URL = "http://json-schema.org/draft-04/schema#"
+    }
 
     open class MySerializerProvider {
         var _provider: SerializerProvider? = null
@@ -183,7 +185,8 @@ class JsonSchemaGenerator @JvmOverloads constructor (
                     // TODO: removed for Java6 compatibility
 //                    if ( config.useOneOfForOption &&
 //                            (    Optional::class.java.isAssignableFrom(propertyType.rawClass)) ) {
-                    if (propertyType.rawClass.name in arrayOf("java.util.Optional", "java8.util.Optional")) {
+                    if (config.useOneOfForOption &&
+                            propertyType.rawClass.name in arrayOf("java.util.Optional", "java8.util.Optional")) {
                         // Need to special-case for property using Option/Optional
                         // Should insert oneOf between 'real one' and 'null'
                         val oneOfArray = JsonNodeFactory.instance.arrayNode()
@@ -444,22 +447,21 @@ class JsonSchemaGenerator @JvmOverloads constructor (
             // so that it can hold whatever the map can hold
 
 
-            val additionalPropsNode = JsonNodeFactory.instance.objectNode()
+            val additionalPropsObject = JsonNodeFactory.instance.objectNode()
 
             node.put("type", "object")
-            node.set("additionalProperties", additionalPropsNode)
+            node.set("additionalProperties", additionalPropsObject)
 
-//            val itemsNode = JsonNodeFactory.instance.objectNode()
-//            val keyNode = JsonNodeFactory.instance.objectNode()
-//            val valueNode = JsonNodeFactory.instance.objectNode()
-//            itemsNode.set("key", keyNode)
-//            itemsNode.set("value", valueNode)
-//            node.set("additionalProperties", itemsNode)
+            // TODO: this is from latest mbknor - is it better?
+//            definitionsHandler.pushWorkInProgress()
+//            val childVisitor = createChild(additionalPropsObject, null)
+//            objectMapper.acceptJsonFormatVisitor(type!!.containedType(1), childVisitor)
+//            definitionsHandler.popworkInProgress()
 
             return object : JsonMapFormatVisitor, MySerializerProvider() {
                 override fun valueFormat(handler: JsonFormatVisitable?, valueType: JavaType?) {
                     l("JsonMapFormatVisitor.valueFormat handler: $handler - valueType: $valueType")
-                    objectMapper.acceptJsonFormatVisitor(valueType, createChild(additionalPropsNode, currentProperty = null))
+                    objectMapper.acceptJsonFormatVisitor(valueType, createChild(additionalPropsObject, currentProperty = null))
                 }
 
                 override fun keyFormat(handler: JsonFormatVisitable?, keyType: JavaType?) {
@@ -468,9 +470,6 @@ class JsonSchemaGenerator @JvmOverloads constructor (
                         if(!keyType.isTypeOrSubTypeOf(String::class.java)) {
                             node.put("additionalProperties", true)
                         }
-//                    if(keyType != String::class.java) {
-//                        node.put("additionalProperties", true)
-//                    }
                     }
                 }
             }
@@ -675,11 +674,11 @@ class JsonSchemaGenerator @JvmOverloads constructor (
     fun generateTitleFromPropertyName(propertyName: String): String {
         // Code found here: http://stackoverflow.com/questions/2559759/how-do-i-convert-camelcase-into-human-readable-names-in-java
         val s = propertyName.replace(
-                String.format("%s|%s|%s",
+                Regex(String.format("%s|%s|%s",
                         "(?<=[A-Z])(?=[A-Z][a-z])",
                         "(?<=[^A-Z])(?=[A-Z])",
                         "(?<=[A-Za-z])(?=[^A-Za-z])"
-                ),
+                )),
                 " "
         )
 
