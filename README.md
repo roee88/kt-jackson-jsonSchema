@@ -5,9 +5,9 @@
 Jackson jsonSchema Generator /Kotlin
 =====================================
 
-This project is a quick re-implementation of [mbknor-jackson-jsonSchema](https://github.com/mbknor/mbknor-jackson-jsonSchema) by [@mbknor](https://github.com/mbknor/),
-in Kotlin. 
-Project is compatible with Java 6.
+Generate JSON schema from your POJOs using Jackson @Annotations.
+
+This project is a quick re-implementation of [mbknor-jackson-jsonSchema](https://github.com/mbknor/mbknor-jackson-jsonSchema) by [@mbknor](https://github.com/mbknor/), in Kotlin (Java 6 compatible, Android compatible).
 
 **Why?**
 I wanted to use it in Android. 
@@ -40,7 +40,7 @@ compile 'com.dr:ktjsonschema:1.0.2'
 * Supports many Javax-validation @Annotations
 * Works well with Generated GUI's using [https://github.com/jdorn/json-editor](https://github.com/jdorn/json-editor)
   - (Must be configured to use this mode)
-* Supports custom Class-to-format-Mapping
+* Supports custom class-to-format mapping
 * Supports java.lang.Optional and [java8.lang.Optional](https://github.com/streamsupport/streamsupport)
 
 **Status**
