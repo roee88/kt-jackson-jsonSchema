@@ -5,16 +5,17 @@
 Jackson jsonSchema Generator /Kotlin
 =====================================
 
-This projects is a quick re-implementation of [mbknor-jackson-jsonSchema](https://github.com/mbknor/mbknor-jackson-jsonSchema) by [@mbknor](https://github.com/mbknor/),
-in Kotlin.
+This project is a quick re-implementation of [mbknor-jackson-jsonSchema](https://github.com/mbknor/mbknor-jackson-jsonSchema) by [@mbknor](https://github.com/mbknor/),
+in Kotlin. 
+Project is compatible with Java 6.
 
 **Why?**
 I wanted to use it in Android. 
-While mbknor-jackson-jsonSchema can easily be modified to target Java6, the Scala runtime is still quite an overhead. 
+While mbknor-jackson-jsonSchema can easily be modified to target Java 6, the Scala runtime is still quite an overhead.
 
 **Gradle (jcenter)**
 ```gradle
-compile 'com.dr:ktjsonschema:1.0.1'
+compile 'com.dr:ktjsonschema:1.0.2'
 ```
 
 **Maven (jcenter)**
@@ -22,7 +23,7 @@ compile 'com.dr:ktjsonschema:1.0.1'
 <dependency>
   <groupId>com.dr</groupId>
   <artifactId>ktjsonschema</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
   <type>pom</type>
 </dependency>
 ```
