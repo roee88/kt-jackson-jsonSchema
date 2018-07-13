@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/kt-jackson-jsonSchema.iml" filepath="$PROJECT_DIR$/.idea/kt-jackson-jsonSchema.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktjsonschema.iml" filepath="$PROJECT_DIR$/.idea/modules/ktjsonschema.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktjsonschema.iml" filepath="$PROJECT_DIR$/.idea/modules/ktjsonschema.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktjsonschema_main.iml" filepath="$PROJECT_DIR$/.idea/modules/ktjsonschema_main.iml" group="ktjsonschema" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktjsonschema_main.iml" filepath="$PROJECT_DIR$/.idea/modules/ktjsonschema_main.iml" group="ktjsonschema" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktjsonschema_test.iml" filepath="$PROJECT_DIR$/.idea/modules/ktjsonschema_test.iml" group="ktjsonschema" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktjsonschema_test.iml" filepath="$PROJECT_DIR$/.idea/modules/ktjsonschema_test.iml" group="ktjsonschema" />
     </modules>
   </component>
