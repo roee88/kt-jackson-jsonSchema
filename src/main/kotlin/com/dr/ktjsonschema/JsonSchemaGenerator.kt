@@ -32,7 +32,8 @@ import javax.validation.constraints.*
 class JsonSchemaGenerator @JvmOverloads constructor (
         val rootObjectMapper: ObjectMapper,
         val config:JsonSchemaConfig = JsonSchemaConfig.vanillaJsonSchemaDraft4,
-        val debug:Boolean = false
+        val debug:Boolean = false,
+        val propertiesAnnotationsToSkip: Set<String> = setOf("JsonSchemaInputModelIgnore")
 ) {
 
     companion object {
@@ -159,7 +160,7 @@ class JsonSchemaGenerator @JvmOverloads constructor (
             // https://github.com/jdorn/json-editor#property-ordering
             var nextPropertyOrderIndex = 1
 
-            fun myPropertyHandler(propertyName:String, propertyType:JavaType, prop: BeanProperty?, jsonPropertyRequired:Boolean): Unit {
+            fun myPropertyHandler(propertyName:String, propertyType:JavaType, prop: BeanProperty?, jsonPropertyRequired: Boolean): Unit {
                 l("JsonObjectFormatVisitor - $propertyName: $propertyType")
 
                 if ( propertiesNode.get(propertyName) != null) {
@@ -169,6 +170,11 @@ class JsonSchemaGenerator @JvmOverloads constructor (
                     return
                 }
 
+                val propertyAnnotations = prop?.member?.annotations()?.toList()?.map { it -> it.annotationClass.simpleName}
+
+                if (propertyAnnotations != null && propertiesAnnotationsToSkip.intersect(propertyAnnotations).isNotEmpty()) {
+                   return
+                }
 
                 // Need to check for Option/Optional-special-case before we know what node to use here.
 
