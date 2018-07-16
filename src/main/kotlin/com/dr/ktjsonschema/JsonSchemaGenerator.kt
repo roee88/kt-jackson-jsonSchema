@@ -33,7 +33,7 @@ class JsonSchemaGenerator @JvmOverloads constructor (
         val rootObjectMapper: ObjectMapper,
         val config:JsonSchemaConfig = JsonSchemaConfig.vanillaJsonSchemaDraft4,
         val debug:Boolean = false,
-        val propertiesAnnotationsToSkip: Set<String> = setOf("JsonSchemaInputModelIgnore")
+        val propertiesAnnotationsToSkip: Set<String> = setOf()
 ) {
 
     companion object {
