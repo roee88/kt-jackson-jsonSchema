@@ -6,6 +6,7 @@ buildscript {
     ext.kotlin_version = '1.0.5-2'
 
     repositories {
+        mavenLocal()
         jcenter()
         mavenCentral()
     }
@@ -17,11 +18,13 @@ buildscript {
 
 apply plugin: 'java'
 apply plugin: 'kotlin'
-apply plugin: 'com.novoda.bintray-release'
+apply plugin: 'maven-publish'
 
 sourceCompatibility = 1.6
 
 repositories {
+    mavenLocal()
+    jcenter()
     mavenCentral()
 }
 
@@ -41,21 +44,13 @@ dependencies {
     testCompile 'joda-time:joda-time:2.9.4'
 }
 
-def bintrayProperties = new Properties()
-def bintrayPropertiesFile = rootProject.file("bintray.properties")
-if (bintrayPropertiesFile.exists()) (
-        bintrayProperties.load(new FileInputStream(bintrayPropertiesFile))
-)
-
-publish {
-    userOrg = 'com-dr'
-    repoName = 'dr-public'
-    uploadName = 'KtJsonSchema'
-    groupId = project.group
-    artifactId = project.name
-    publishVersion = project.version
-    desc = project.description
-    website = 'https://github.com/roee88/kt-jackson-jsonSchema'
-    bintrayUser = bintrayProperties.getProperty('bintrayUser', 'noUser')
-    bintrayKey = bintrayProperties.getProperty('bintrayKey', 'noKey')
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId 'ai.mapper'
+            artifactId 'ktjsonschema'
+            version project.version
+            from components.java
+        }
+    }
 }
