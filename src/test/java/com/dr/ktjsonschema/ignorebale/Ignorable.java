@@ -20,7 +20,7 @@ import static org.junit.Assert.assertFalse;
 
 public class Ignorable {
   Set<String> ignoreInputAnnotation = new HashSet<String>(Arrays.asList("JsonSchemaInputModelIgnore"));
-  Set<String> jsonSchemaOutputModelIgnore = new HashSet<String>(Arrays.asList("JsonSchemaOutputModelIgnore"));
+  Set<String> ignoreOutputAnnotation = new HashSet<String>(Arrays.asList("JsonSchemaOutputModelIgnore"));
 
   @Test
   public void ignorableNotConfigured() throws Exception {
@@ -77,7 +77,7 @@ public class Ignorable {
   public void ignorableJsonSchemaOutputModelIgnoreConfigured() throws Exception {
     ObjectMapper objectMapper = new ObjectMapper();
     ObjectWriter writer = objectMapper.writerWithDefaultPrettyPrinter();
-    JsonSchemaGenerator jsonSchemaGenerator = new JsonSchemaGenerator(objectMapper, JsonSchemaConfig.getVanillaJsonSchemaDraft4(), false, jsonSchemaOutputModelIgnore);
+    JsonSchemaGenerator jsonSchemaGenerator = new JsonSchemaGenerator(objectMapper, JsonSchemaConfig.getVanillaJsonSchemaDraft4(), false, ignoreOutputAnnotation);
 
     //this works
     JsonNode businessSchema = jsonSchemaGenerator.generateJsonSchema(IgnorableBusiness.class);
