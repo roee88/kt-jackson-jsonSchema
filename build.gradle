@@ -1,5 +1,5 @@
 group 'mapper.ai'
-version '1.0.3'
+version '1.0.4'
 description 'Generate JSON Schema draft 4 with Polymorphism using Jackson annotations'
 
 buildscript {
