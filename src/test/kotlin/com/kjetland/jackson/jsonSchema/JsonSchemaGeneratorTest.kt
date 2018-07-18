@@ -1,8 +1,8 @@
 package com.kjetland.jackson.jsonSchema
 
-import com.dr.ktjsonschema.JsonSchemaConfig
-import com.dr.ktjsonschema.JsonSchemaGenerator
-import com.dr.ktjsonschema.issue_24.model.entities.EntityWrapper
+import ai.mapper.ktjsonschema.JsonSchemaConfig
+import ai.mapper.ktjsonschema.JsonSchemaGenerator
+import ai.mapper.ktjsonschema.issue_24.model.entities.EntityWrapper
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.SerializationFeature
