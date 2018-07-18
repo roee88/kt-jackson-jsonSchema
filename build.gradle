@@ -1,9 +1,9 @@
-group 'com.dr'
-version '1.0.2'
+group 'mapper.ai'
+version '1.0.3'
 description 'Generate JSON Schema draft 4 with Polymorphism using Jackson annotations'
 
 buildscript {
-    ext.kotlin_version = '1.0.5-2'
+    ext.kotlin_version = '1.2.51'
 
     repositories {
         mavenLocal()
