@@ -1,6 +1,6 @@
 package com.kjetland.jackson.jsonSchema.testDataKotlin
 
-import com.dr.ktjsonschema.annotations.JsonSchemaDefault
+import ai.mapper.ktjsonschema.annotations.JsonSchemaDefault
 
 data class PojoWithParentKotlin
 (

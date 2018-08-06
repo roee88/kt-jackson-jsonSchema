@@ -1,9 +1,9 @@
 package com.kjetland.jackson.jsonSchema.testData;
 
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
-import com.dr.ktjsonschema.annotations.JsonSchemaDescription;
-import com.dr.ktjsonschema.annotations.JsonSchemaFormat;
-import com.dr.ktjsonschema.annotations.JsonSchemaTitle;
+import ai.mapper.ktjsonschema.annotations.JsonSchemaDescription;
+import ai.mapper.ktjsonschema.annotations.JsonSchemaFormat;
+import ai.mapper.ktjsonschema.annotations.JsonSchemaTitle;
 
 import java.time.OffsetDateTime;
 
