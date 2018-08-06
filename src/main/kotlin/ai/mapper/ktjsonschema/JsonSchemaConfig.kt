@@ -31,6 +31,19 @@ data class JsonSchemaConfig
                         customType2FormatMapping = mapOf()
                 )
 
+                @JvmStatic
+                val vanillaJsonSchemaDraft4WithIds = JsonSchemaConfig(
+                        autoGenerateTitleForProperties = false,
+                        defaultArrayFormat = null,
+                        useOneOfForOption = false,
+                        usePropertyOrdering = false,
+                        hidePolymorphismTypeProperty = false,
+                        disableWarnings = false,
+                        useMinLengthForNotNull = false,
+                        useTypeIdForDefinitionName = true,
+                        customType2FormatMapping = mapOf()
+                )
+
                 /**
                  * Use this configuration if using the JsonSchema to generate HTML5 GUI, eg. by using https://github.com/jdorn/json-editor
                  *

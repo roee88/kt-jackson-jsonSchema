@@ -31,7 +31,7 @@ import javax.validation.constraints.*
  */
 class JsonSchemaGenerator @JvmOverloads constructor (
         val rootObjectMapper: ObjectMapper,
-        val config:JsonSchemaConfig = JsonSchemaConfig.vanillaJsonSchemaDraft4,
+        val config:JsonSchemaConfig = JsonSchemaConfig.vanillaJsonSchemaDraft4WithIds,
         val debug:Boolean = false,
         val propertiesAnnotationsToSkip: Set<String> = setOf()
 ) {
@@ -123,7 +123,7 @@ class JsonSchemaGenerator @JvmOverloads constructor (
             // create definition
             val node = JsonNodeFactory.instance.objectNode()
 
-            // When processing polymorphism, we might get multiple recursive calls to getOrCreateDefinition - this is a wau to combine them
+            // When processing polymorphism, we might get multiple recursive calls to getOrCreateDefinition - this is a way to combine them
             workInProgress = WorkInProgress(clazz, node)
 
             definitionsNode.set(shortRef, node)
